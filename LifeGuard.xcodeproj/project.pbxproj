@@ -3,18 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC26B9D178E49DE53D17D34B /* Pods_LifeGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35667B5D6F755F98FA0E7E3B /* Pods_LifeGuard.framework */; };
+		FA48669725B785020028804E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48669625B785020028804E /* Weather.swift */; };
+		FA48669C25B79A0E0028804E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48669B25B79A0E0028804E /* WeatherData.swift */; };
+		FA4866A125B7A7360028804E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4866A025B7A7360028804E /* WeatherModel.swift */; };
+		FA4866B325BA4C910028804E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4866B225BA4C910028804E /* AddItemViewController.swift */; };
+		FA4866C625BAE5D10028804E /* CategoryLogbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4866C525BAE5D10028804E /* CategoryLogbook.swift */; };
+		FA4866CB25BAE5E00028804E /* ItemLogbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4866CA25BAE5E00028804E /* ItemLogbook.swift */; };
+		FA4866DF25BB20C50028804E /* CategoryLogbookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4866DE25BB20C50028804E /* CategoryLogbookTableViewController.swift */; };
+		FA48672125BC70900028804E /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48672025BC70900028804E /* ItemsTableViewController.swift */; };
+		FA8E8CDE25C38A2F005A1BB5 /* IncidentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8CDD25C38A2F005A1BB5 /* IncidentsTableViewController.swift */; };
+		FA8E8CE625C38DD4005A1BB5 /* AddIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8CE525C38DD4005A1BB5 /* AddIncidentViewController.swift */; };
+		FA8E8CEC25C39473005A1BB5 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8CEB25C39473005A1BB5 /* NotesTableViewController.swift */; };
+		FA8E8CF425C39964005A1BB5 /* AddNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8CF325C39964005A1BB5 /* AddNote.swift */; };
+		FA8E8CFC25C61F97005A1BB5 /* AddIncident.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8CFB25C61F97005A1BB5 /* AddIncident.swift */; };
+		FA8E8D4825C81773005A1BB5 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8D4725C81773005A1BB5 /* ReportTableViewController.swift */; };
+		FA8E8D5125C89C33005A1BB5 /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E8D4F25C89C32005A1BB5 /* FieldTableViewCell.swift */; };
+		FA8E8D5225C89C33005A1BB5 /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8E8D5025C89C32005A1BB5 /* FieldTableViewCell.xib */; };
 		FAC1088625B71D7F000AA2C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1088525B71D7F000AA2C0 /* AppDelegate.swift */; };
 		FAC1088825B71D7F000AA2C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1088725B71D7F000AA2C0 /* SceneDelegate.swift */; };
-		FAC1088A25B71D7F000AA2C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1088925B71D7F000AA2C0 /* ViewController.swift */; };
+		FAC1088A25B71D7F000AA2C0 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1088925B71D7F000AA2C0 /* WeatherViewController.swift */; };
 		FAC1088D25B71D7F000AA2C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC1088B25B71D7F000AA2C0 /* Main.storyboard */; };
 		FAC1088F25B71D85000AA2C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC1088E25B71D85000AA2C0 /* Assets.xcassets */; };
 		FAC1089225B71D85000AA2C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC1089025B71D85000AA2C0 /* LaunchScreen.storyboard */; };
 		FAC1089D25B71D86000AA2C0 /* LifeGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1089C25B71D86000AA2C0 /* LifeGuardTests.swift */; };
 		FAC108A825B71D86000AA2C0 /* LifeGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC108A725B71D86000AA2C0 /* LifeGuardUITests.swift */; };
+		FAE8B94125CB6834009A4737 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAE8B94025CB6834009A4737 /* IQKeyboardManagerSwift */; };
+		FAE8B95725CC3964009A4737 /* CategoryReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8B95625CC3964009A4737 /* CategoryReportTableViewController.swift */; };
+		FAE8B95C25CC398F009A4737 /* AddIncidentReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8B95B25CC398F009A4737 /* AddIncidentReportTableViewController.swift */; };
+		FAE8B96125CC39BF009A4737 /* ChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8B96025CC39BF009A4737 /* ChoiceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +56,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A1626A8E966BCD2388ACEE9 /* Pods-LifeGuard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeGuard.release.xcconfig"; path = "Target Support Files/Pods-LifeGuard/Pods-LifeGuard.release.xcconfig"; sourceTree = "<group>"; };
+		2811A3F7D5D95978158F3621 /* Pods-LifeGuard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeGuard.debug.xcconfig"; path = "Target Support Files/Pods-LifeGuard/Pods-LifeGuard.debug.xcconfig"; sourceTree = "<group>"; };
+		35667B5D6F755F98FA0E7E3B /* Pods_LifeGuard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeGuard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA48669625B785020028804E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FA48669B25B79A0E0028804E /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		FA4866A025B7A7360028804E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		FA4866B225BA4C910028804E /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		FA4866C525BAE5D10028804E /* CategoryLogbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLogbook.swift; sourceTree = "<group>"; };
+		FA4866CA25BAE5E00028804E /* ItemLogbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLogbook.swift; sourceTree = "<group>"; };
+		FA4866DE25BB20C50028804E /* CategoryLogbookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLogbookTableViewController.swift; sourceTree = "<group>"; };
+		FA48672025BC70900028804E /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
+		FA8E8CDD25C38A2F005A1BB5 /* IncidentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsTableViewController.swift; sourceTree = "<group>"; };
+		FA8E8CE525C38DD4005A1BB5 /* AddIncidentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncidentViewController.swift; sourceTree = "<group>"; };
+		FA8E8CEB25C39473005A1BB5 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
+		FA8E8CF325C39964005A1BB5 /* AddNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNote.swift; sourceTree = "<group>"; };
+		FA8E8CFB25C61F97005A1BB5 /* AddIncident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncident.swift; sourceTree = "<group>"; };
+		FA8E8D4725C81773005A1BB5 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
+		FA8E8D4F25C89C32005A1BB5 /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		FA8E8D5025C89C32005A1BB5 /* FieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
 		FAC1088225B71D7F000AA2C0 /* LifeGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC1088525B71D7F000AA2C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC1088725B71D7F000AA2C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAC1088925B71D7F000AA2C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAC1088925B71D7F000AA2C0 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		FAC1088C25B71D7F000AA2C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC1088E25B71D85000AA2C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC1089125B71D85000AA2C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +89,9 @@
 		FAC108A325B71D86000AA2C0 /* LifeGuardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeGuardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC108A725B71D86000AA2C0 /* LifeGuardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeGuardUITests.swift; sourceTree = "<group>"; };
 		FAC108A925B71D86000AA2C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE8B95625CC3964009A4737 /* CategoryReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReportTableViewController.swift; sourceTree = "<group>"; };
+		FAE8B95B25CC398F009A4737 /* AddIncidentReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncidentReportTableViewController.swift; sourceTree = "<group>"; };
+		FAE8B96025CC39BF009A4737 /* ChoiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC26B9D178E49DE53D17D34B /* Pods_LifeGuard.framework in Frameworks */,
+				FAE8B94125CB6834009A4737 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +121,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		348E448161CF1B71ECC8CE3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2811A3F7D5D95978158F3621 /* Pods-LifeGuard.debug.xcconfig */,
+				1A1626A8E966BCD2388ACEE9 /* Pods-LifeGuard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA48669225B784500028804E /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				FAC1088925B71D7F000AA2C0 /* WeatherViewController.swift */,
+				FA48669625B785020028804E /* Weather.swift */,
+				FA48669B25B79A0E0028804E /* WeatherData.swift */,
+				FA4866A025B7A7360028804E /* WeatherModel.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		FA4866AB25BA2D3A0028804E /* Logbook */ = {
+			isa = PBXGroup;
+			children = (
+				FA4866DE25BB20C50028804E /* CategoryLogbookTableViewController.swift */,
+				FA48672025BC70900028804E /* ItemsTableViewController.swift */,
+				FA4866B225BA4C910028804E /* AddItemViewController.swift */,
+			);
+			path = Logbook;
+			sourceTree = "<group>";
+		};
+		FA4866C425BAE5770028804E /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA4866C525BAE5D10028804E /* CategoryLogbook.swift */,
+				FA4866CA25BAE5E00028804E /* ItemLogbook.swift */,
+				FA8E8CF325C39964005A1BB5 /* AddNote.swift */,
+				FA8E8CFB25C61F97005A1BB5 /* AddIncident.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		FA48671425BB2FCF0028804E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35667B5D6F755F98FA0E7E3B /* Pods_LifeGuard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA48672525BC880B0028804E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAC1088B25B71D7F000AA2C0 /* Main.storyboard */,
+				FAC1089025B71D85000AA2C0 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA8E8CDC25C38A06005A1BB5 /* Incidents */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E8CDD25C38A2F005A1BB5 /* IncidentsTableViewController.swift */,
+				FA8E8CE525C38DD4005A1BB5 /* AddIncidentViewController.swift */,
+			);
+			path = Incidents;
+			sourceTree = "<group>";
+		};
+		FA8E8CEA25C39434005A1BB5 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E8CEB25C39473005A1BB5 /* NotesTableViewController.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		FA8E8D4625C8174A005A1BB5 /* Reporting */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E8D4725C81773005A1BB5 /* ReportTableViewController.swift */,
+				FA8E8D4F25C89C32005A1BB5 /* FieldTableViewCell.swift */,
+				FA8E8D5025C89C32005A1BB5 /* FieldTableViewCell.xib */,
+			);
+			path = Reporting;
+			sourceTree = "<group>";
+		};
 		FAC1087925B71D7F000AA2C0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +213,8 @@
 				FAC1089B25B71D86000AA2C0 /* LifeGuardTests */,
 				FAC108A625B71D86000AA2C0 /* LifeGuardUITests */,
 				FAC1088325B71D7F000AA2C0 /* Products */,
+				FA48671425BB2FCF0028804E /* Frameworks */,
+				348E448161CF1B71ECC8CE3C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +231,17 @@
 		FAC1088425B71D7F000AA2C0 /* LifeGuard */ = {
 			isa = PBXGroup;
 			children = (
+				FAE8B94525CC388A009A4737 /* Incident Report */,
+				FA8E8D4625C8174A005A1BB5 /* Reporting */,
 				FAC1088525B71D7F000AA2C0 /* AppDelegate.swift */,
 				FAC1088725B71D7F000AA2C0 /* SceneDelegate.swift */,
-				FAC1088925B71D7F000AA2C0 /* ViewController.swift */,
-				FAC1088B25B71D7F000AA2C0 /* Main.storyboard */,
+				FA4866C425BAE5770028804E /* Data Model */,
+				FA8E8CDC25C38A06005A1BB5 /* Incidents */,
+				FA8E8CEA25C39434005A1BB5 /* Note */,
+				FA4866AB25BA2D3A0028804E /* Logbook */,
+				FA48669225B784500028804E /* Weather */,
+				FA48672525BC880B0028804E /* Views */,
 				FAC1088E25B71D85000AA2C0 /* Assets.xcassets */,
-				FAC1089025B71D85000AA2C0 /* LaunchScreen.storyboard */,
 				FAC1089325B71D85000AA2C0 /* Info.plist */,
 			);
 			path = LifeGuard;
@@ -128,6 +265,16 @@
 			path = LifeGuardUITests;
 			sourceTree = "<group>";
 		};
+		FAE8B94525CC388A009A4737 /* Incident Report */ = {
+			isa = PBXGroup;
+			children = (
+				FAE8B95625CC3964009A4737 /* CategoryReportTableViewController.swift */,
+				FAE8B95B25CC398F009A4737 /* AddIncidentReportTableViewController.swift */,
+				FAE8B96025CC39BF009A4737 /* ChoiceTableViewController.swift */,
+			);
+			path = "Incident Report";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,15 +282,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC108AC25B71D86000AA2C0 /* Build configuration list for PBXNativeTarget "LifeGuard" */;
 			buildPhases = (
+				44EF1D97AE71FE46F152A1C6 /* [CP] Check Pods Manifest.lock */,
 				FAC1087E25B71D7F000AA2C0 /* Sources */,
 				FAC1087F25B71D7F000AA2C0 /* Frameworks */,
 				FAC1088025B71D7F000AA2C0 /* Resources */,
+				5803675875FB5343B283F0F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = LifeGuard;
+			packageProductDependencies = (
+				FAE8B94025CB6834009A4737 /* IQKeyboardManagerSwift */,
+			);
 			productName = LifeGuard;
 			productReference = FAC1088225B71D7F000AA2C0 /* LifeGuard.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +367,10 @@
 				Base,
 			);
 			mainGroup = FAC1087925B71D7F000AA2C0;
+			packageReferences = (
+				FA4866BC25BAE2360028804E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				FAE8B93F25CB6834009A4737 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = FAC1088325B71D7F000AA2C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +389,7 @@
 			files = (
 				FAC1089225B71D85000AA2C0 /* LaunchScreen.storyboard in Resources */,
 				FAC1088F25B71D85000AA2C0 /* Assets.xcassets in Resources */,
+				FA8E8D5225C89C33005A1BB5 /* FieldTableViewCell.xib in Resources */,
 				FAC1088D25B71D7F000AA2C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,14 +410,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44EF1D97AE71FE46F152A1C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LifeGuard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5803675875FB5343B283F0F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeGuard/Pods-LifeGuard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeGuard/Pods-LifeGuard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeGuard/Pods-LifeGuard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAC1087E25B71D7F000AA2C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC1088A25B71D7F000AA2C0 /* ViewController.swift in Sources */,
+				FAE8B95725CC3964009A4737 /* CategoryReportTableViewController.swift in Sources */,
+				FAE8B96125CC39BF009A4737 /* ChoiceTableViewController.swift in Sources */,
+				FA4866CB25BAE5E00028804E /* ItemLogbook.swift in Sources */,
+				FA8E8CDE25C38A2F005A1BB5 /* IncidentsTableViewController.swift in Sources */,
+				FAE8B95C25CC398F009A4737 /* AddIncidentReportTableViewController.swift in Sources */,
+				FA4866DF25BB20C50028804E /* CategoryLogbookTableViewController.swift in Sources */,
+				FA8E8D4825C81773005A1BB5 /* ReportTableViewController.swift in Sources */,
+				FA8E8CFC25C61F97005A1BB5 /* AddIncident.swift in Sources */,
+				FA48669725B785020028804E /* Weather.swift in Sources */,
+				FA48672125BC70900028804E /* ItemsTableViewController.swift in Sources */,
+				FA48669C25B79A0E0028804E /* WeatherData.swift in Sources */,
+				FA8E8D5125C89C33005A1BB5 /* FieldTableViewCell.swift in Sources */,
+				FA4866B325BA4C910028804E /* AddItemViewController.swift in Sources */,
+				FAC1088A25B71D7F000AA2C0 /* WeatherViewController.swift in Sources */,
+				FA8E8CE625C38DD4005A1BB5 /* AddIncidentViewController.swift in Sources */,
 				FAC1088625B71D7F000AA2C0 /* AppDelegate.swift in Sources */,
+				FA8E8CF425C39964005A1BB5 /* AddNote.swift in Sources */,
+				FA4866A125B7A7360028804E /* WeatherModel.swift in Sources */,
+				FA4866C625BAE5D10028804E /* CategoryLogbook.swift in Sources */,
 				FAC1088825B71D7F000AA2C0 /* SceneDelegate.swift in Sources */,
+				FA8E8CEC25C39473005A1BB5 /* NotesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +650,12 @@
 		};
 		FAC108AD25B71D86000AA2C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2811A3F7D5D95978158F3621 /* Pods-LifeGuard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RJU3N2UMVU;
 				INFOPLIST_FILE = LifeGuard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,10 +670,12 @@
 		};
 		FAC108AE25B71D86000AA2C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A1626A8E966BCD2388ACEE9 /* Pods-LifeGuard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RJU3N2UMVU;
 				INFOPLIST_FILE = LifeGuard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,6 +808,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA4866BC25BAE2360028804E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.5.1;
+			};
+		};
+		FAE8B93F25CB6834009A4737 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAE8B94025CB6834009A4737 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAE8B93F25CB6834009A4737 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAC1087A25B71D7F000AA2C0 /* Project object */;
 }

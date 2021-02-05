@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "emoji-clipart-wind-19-transparent-1.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "emoji-clipart-wind-19-transparent.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "emoji-clipart-wind-19-transparent-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
