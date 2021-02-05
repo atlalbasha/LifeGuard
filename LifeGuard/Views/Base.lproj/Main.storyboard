@@ -1032,10 +1032,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choice" id="dig-tJ-GNc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Fmd-KY-IbE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Fmd-KY-IbE">
+                            <connections>
+                                <action selector="donePressed:" destination="StZ-VB-5OT" id="ydh-7Y-qkt"/>
+                                <segue destination="XCr-ug-EEN" kind="unwind" identifier="doneBack" unwindAction="unwindToViewControllerAWithSegue:" id="tYq-vc-uey"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGq-yK-hHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XCr-ug-EEN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2039.1304347826087" y="2214.5089285714284"/>
         </scene>

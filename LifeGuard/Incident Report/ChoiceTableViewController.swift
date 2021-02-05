@@ -72,7 +72,7 @@ class ChoiceTableViewController: UITableViewController {
         
         addChoice[indexPath.row].done = !addChoice[indexPath.row].done
         
-//        performSegue(withIdentifier: "getChoice", sender: self)
+
         
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -80,23 +80,28 @@ class ChoiceTableViewController: UITableViewController {
         print(selectedItems[indexPath.row])
         
     }
+   
+    
+    @IBAction func donePressed(_ sender: UIBarButtonItem) {
+        //  back to previous page and refresh tableView with segue
+        self.performSegue(withIdentifier: "doneBack", sender: self)
+        
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "getChoice" {
+        if segue.identifier == "doneBack" {
             let destinationVC = segue.destination as! AddIncidentReportTableViewController
-            if let indexPath = tableView.indexPathForSelectedRow {
-                
-              
-//                        let category = addChoice[indexPath.row]
-                        
+            
                 destinationVC.selectedChoice = getChoice
                 
                 
                 
          
-            }
+            
             
             
         }
     }
-
+    
+    
 }

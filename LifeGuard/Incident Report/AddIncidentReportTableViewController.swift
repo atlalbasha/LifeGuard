@@ -74,7 +74,7 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
         tableView.register(FieldTableViewCell.nib(), forCellReuseIdentifier: FieldTableViewCell.identifier)
         
         
-        print(selectedChoice)
+        
         
     }
     
@@ -135,6 +135,7 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
         }else if indexPath.section == 2{
             let mySwitch = UISwitch()
             cell.textLabel?.text = rescuedCase[indexPath.row]
+          
             cell.detailTextLabel?.text = "No/Yes"
             cell.accessoryView = mySwitch
             mySwitch.isOn = false
@@ -142,7 +143,27 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
             
             
         }else if indexPath.section == 3{
+            
             cell.textLabel?.text = data[indexPath.row].title
+            
+            let category = data[indexPath.row]
+            
+            
+//            cell.detailTextLabel?.text = category.items[indexPath.row]
+            
+            if selectedChoice.count != 0 {
+                for i in selectedChoice{
+                    for j in category.items{
+                        if i == j{
+                            cell.detailTextLabel?.text = "\(j)"
+                        }
+                        
+                    }
+                    
+                }
+
+            }
+            
         }else{
             let fieldCell = tableView.dequeueReusableCell(withIdentifier: FieldTableViewCell.identifier, for: indexPath) as! FieldTableViewCell
             
@@ -211,6 +232,18 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
         }
         
         
+    }
+    
+    
+    //MARK: - Exit Segue
+    // segue exit func to refresh tableView with dismiss other page
+    @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                print(self.selectedChoice)
+            }
+        }
     }
 }
 
