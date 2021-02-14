@@ -26,7 +26,7 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
     
     let infoAboutRescued = ["Name", "Age", "Gender","Other info"]
     
-    let rescuedCase = ["Emergency Signs, Shouts", "Found Below The Surface"]
+    let rescuedCase = ["Emergency Signs, Shouts", "Found Below The Surface", "Can swim"]
     
     let descibe = ["Descibe The Procedure in Your Words","Do You Have Any Suggestions of Improvment?"]
     
@@ -37,9 +37,11 @@ class AddIncidentReportTableViewController: UITableViewController, UITextFieldDe
     let data: [Report] = [
         
         Report(title: "Distance from The Beach", items: ["Less Than 50 meter","50-100 meter", "100-200 meter", "More Than 200 meter"])
-        ,Report(title: "Who Alarmed", items: ["Public","LifeGuard"])
-        ,Report(title: "Lifesaving Equipment", items: ["Nothing","Livboj","Torpedo","Rescue Board","Drones"])
-        ,Report(title: "External Help", items: ["Abmbulance","Rescue Service","Sea Rescue","The Coast Guard","Helicopter", "Polis", "Public"])
+//        ,Report(title: "Who Alarmed", items: ["Public","LifeGuard"])
+//
+//        ,Report(title: "Lifesaving Equipment", items: ["Nothing","Livboj","Torpedo","Rescue Board","Drones"])
+//
+//        ,Report(title: "External Help", items: ["Abmbulance","Rescue Service","Sea Rescue","The Coast Guard","Helicopter", "Polis", "Public"])
         
         ,Report(title: "Type of Disease, Accident", items: ["Heart Attack", "Neck-Back Injury", "Heat Stroke","Wounds","Worm Body Part","Snake,Insect Animal Bite","Cramp ","Drowning","Jellyfish", "Fire","Shock", "Head Injury","Burns","External Bleeding","Lose a Tooth", "Asthma","Missing Person","Threat, Violence","Fainting","Circulatory Failure", "Cooling","Fractures, Sprain", "Nosebleeds",  "Allergic Reaction",  "Diabetes","Kris, Chock,",    "Posoning, Burns", " Prevention"])
         

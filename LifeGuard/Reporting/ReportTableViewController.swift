@@ -81,7 +81,7 @@ class ReportTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // change nav title color
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
         
         // add all weather value i arrayer
         airAndWater = [airValue, waterValue]

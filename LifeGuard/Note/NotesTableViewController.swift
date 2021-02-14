@@ -36,6 +36,8 @@ class NotesTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return addNotes?.count ?? 1
@@ -51,10 +53,15 @@ class NotesTableViewController: UITableViewController {
         let resultPrefix = noteString!.prefix(16)
         
         
-        cell.textLabel?.text = "\(String(resultPrefix))..." ?? "No Note Added"  // .title
+        cell.textLabel?.text = "\(String(resultPrefix))..."  // .title
         cell.detailTextLabel?.text = result
         
         cell.delegate = self
+        
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 8
+    
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

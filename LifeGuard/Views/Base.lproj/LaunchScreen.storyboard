@@ -16,22 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lifepreserver" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-JC-VeE">
-                                <rect key="frame" x="87" y="203" width="240" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.87865006840000004" green="0.67419101429999995" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifepreserver" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-JC-VeE">
+                                <rect key="frame" x="82" y="323.5" width="250" height="249"/>
+                                <color key="tintColor" name="pinklife"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="eW4-6p-8mK"/>
+                                    <constraint firstAttribute="height" constant="250" id="oGJ-HY-AxD"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LifeGuard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2a-wB-IHJ">
-                                <rect key="frame" x="54" y="435" width="330" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="45"/>
-                                <color key="textColor" red="0.98039215800000001" green="0.88627451660000001" blue="0.19607838990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LifeGuard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2a-wB-IHJ">
+                                <rect key="frame" x="84" y="574" width="246" height="60"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="52"/>
+                                <color key="textColor" name="pinklife"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zero Drowning Our Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCD-Jq-HBC">
+                                <rect key="frame" x="85" y="635" width="244" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="lifeGuardColor"/>
-                        <color key="tintColor" name="lifeGuardColor"/>
+                        <color key="backgroundColor" name="pruple"/>
+                        <color key="tintColor" name="pruple"/>
+                        <constraints>
+                            <constraint firstItem="bCD-Jq-HBC" firstAttribute="top" secondItem="w2a-wB-IHJ" secondAttribute="bottom" constant="1" id="AYn-dG-t3B"/>
+                            <constraint firstItem="w2a-wB-IHJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BKj-v9-uZM"/>
+                            <constraint firstItem="Qgh-JC-VeE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BoQ-qq-EHb"/>
+                            <constraint firstItem="Qgh-JC-VeE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bhT-3v-AiP"/>
+                            <constraint firstItem="w2a-wB-IHJ" firstAttribute="top" secondItem="Qgh-JC-VeE" secondAttribute="bottom" constant="1" id="jhi-cX-Sey"/>
+                            <constraint firstItem="bCD-Jq-HBC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lky-Uk-Q7f"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,7 +57,10 @@
     </scenes>
     <resources>
         <image name="lifepreserver" catalog="system" width="128" height="121"/>
-        <namedColor name="lifeGuardColor">
+        <namedColor name="pinklife">
+            <color red="1" green="0.49300000071525574" blue="0.47400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pruple">
             <color red="0.25400000810623169" green="0.23100000619888306" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>

@@ -39,7 +39,7 @@ class CategoryLogbookTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // change nav title color
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
         
         loadLogbook()
         
@@ -98,6 +98,7 @@ class CategoryLogbookTableViewController: UITableViewController {
         let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
             self.dismiss(animated: true, completion: nil)
         }
+        cancelPressed.setValue(UIColor.systemPink, forKey: "titleTextColor")
         
         // add buttom in textField alert
         let actionPressed = UIAlertAction(title: "Add", style: .default) {
@@ -121,6 +122,9 @@ class CategoryLogbookTableViewController: UITableViewController {
             
         }
         
+        actionPressed.setValue(UIColor(named: "prupleColor"), forKey: "titleTextColor")
+        
+
         
         alert.addAction(cancelPressed)
         alert.addAction(actionPressed)

@@ -60,9 +60,9 @@ class WeatherViewController: UIViewController, MTSlideToOpenDelegate {
         // Do any additional setup after loading the view.
         
         //slid button
-        let slide = MTSlideToOpenView(frame: CGRect(x: 35, y: 700, width: 317, height: 56))
+        let slide = MTSlideToOpenView(frame: CGRect(x: self.view.bounds.midX/4, y: self.view.bounds.midY+200, width: 317, height: 60))
         slide.sliderViewTopDistance = 0
-        slide.sliderCornerRadius = 28
+        slide.sliderCornerRadius = 30
         slide.thumbnailColor = #colorLiteral(red: 0.9792179465, green: 0.4215875864, blue: 0.4211912155, alpha: 1)
         slide.slidingColor = #colorLiteral(red: 0.9792179465, green: 0.4215875864, blue: 0.4211912155, alpha: 1)
         slide.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

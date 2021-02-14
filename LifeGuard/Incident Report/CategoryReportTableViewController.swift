@@ -12,11 +12,7 @@ class CategoryReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.rowHeight = 70.0
     }
 
     // MARK: - Table view data source
@@ -28,18 +24,27 @@ class CategoryReportTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 8
+
 
         return cell
     }
-    */
+    
+ func functableView(_tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+           cell.backgroundColor = .blue
+           cell.layer.masksToBounds = true
+           cell.layer.cornerRadius = 16
+       }
+    
 
     /*
     // Override to support conditional editing of the table view.
