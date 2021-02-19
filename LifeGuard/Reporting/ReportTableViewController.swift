@@ -243,7 +243,7 @@ class ReportTableViewController: UITableViewController, UITextFieldDelegate {
             if myStepper.tag == 0{
                 cell.imageView?.image = UIImage(systemName: "wind")
             }else{
-                cell.imageView?.image = UIImage(systemName: "arrowshape.turn.up.left.circle")
+                cell.imageView?.image = UIImage(systemName: "safari")
             }
             
             // change wind direction by user

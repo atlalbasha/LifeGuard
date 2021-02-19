@@ -41,11 +41,9 @@ class LifeGuardData: NSObject, FormDataSource {
                                    icon: "",
                                    kvcKey: "name",
                                    value: lifeguard.name ?? "",
-                                   placeholder: "Type Your Name...",
-                                   validator: {
-                                    return !(lifeguard.name?.isEmpty ?? true)
-
-        }))
+                                   placeholder: "Type Your Name..."))
+//                                   validator: {
+//                                    return !(lifeguard.name?.isEmpty ?? true)}))
 
         basicRows.append(StringRow(title: "LifeSaving Station:",
                                    icon: "",
@@ -93,9 +91,9 @@ class LifeGuardData: NSObject, FormDataSource {
         
         basicRows.append(SelectRow(title: "External Help",
                                    icon: "",
-                                   kvcKey: "extaHelp",
-                                   value: lifeguard.extaHelp,
-                                   listOfValues: ["Abmbulance","Rescue Service","Sea Rescue","The Coast Guard","Helicopter", "Polis", "Public","-"]))
+                                   kvcKey: "extraHelp",
+                                   value: lifeguard.extraHelp,
+                                   listOfValues: ["Ambulance","Rescue Service","Sea Rescue","The Coast Guard","Helicopter", "Polis", "Public","-"]))
         
         
         basicRows.append(TextViewRow(title: "Note",

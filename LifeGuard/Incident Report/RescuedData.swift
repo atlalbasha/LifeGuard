@@ -42,11 +42,10 @@ class RescuedData: NSObject, FormDataSource {
                                    icon: "",
                                    kvcKey: "name",
                                    value: rescued.name ?? "",
-                                   placeholder: "Type Name...",
-                                   validator: {
-                                    return !(rescued.name?.isEmpty ?? true)
-
-        }))
+                                   placeholder: "Type Name..."
+//                                   validator: {
+//                                    return !(rescued.name?.isEmpty ?? true)}
+        ))
         
        
      
@@ -60,10 +59,10 @@ class RescuedData: NSObject, FormDataSource {
         
     
 
-        basicRows.append(SelectRow(title: "Emergency Signs, Shouts:",
+        basicRows.append(SelectRow(title: "Emergency Sign, Shouts:",
                                    icon: "",
-                                   kvcKey: "signe",
-                                   value: rescued.signe,
+                                   kvcKey: "sign",
+                                   value: rescued.sign,
                                    
                                    listOfValues: ["Yes", "No", "Maybe" ,"-"]))
         

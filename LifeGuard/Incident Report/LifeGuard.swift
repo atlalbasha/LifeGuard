@@ -14,18 +14,18 @@ import Foundation
     @objc dynamic var place: String?
     @objc dynamic var alarmed: String?
     @objc dynamic var equipment: String?
-    @objc dynamic var extaHelp: String?
+    @objc dynamic var extraHelp: String?
     @objc dynamic var note: String?
     
 
-    convenience init(name: String?, station: String?, place: String?, alarmed: String?, equipment: String?, extaHelp: String?, date: Date? = Date()) {
+    convenience init(name: String?, station: String?, place: String?, alarmed: String?, equipment: String?, extraHelp: String?, date: Date? = Date()) {
         self.init()
         self.name = name
         self.station = station
         self.place = place
         self.alarmed = alarmed
         self.equipment = equipment
-        self.extaHelp = extaHelp
+        self.extraHelp = extraHelp
         self.note = note
     }
 }

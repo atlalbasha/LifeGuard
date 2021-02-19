@@ -44,7 +44,7 @@ class FromAccidentVC: UIViewController {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("not implementef")
+        fatalError("not implemented")
     }
 
     override func viewDidLoad() {

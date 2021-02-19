@@ -49,13 +49,13 @@ class AccidentData: NSObject, FormDataSource {
                                    kvcKey: "type",
                                    value: accident.type,
                                    
-                                   listOfValues: ["Heart Attack", "Neck-Back Injury", "Heat Stroke","Wounds","Worm Body Part","Snake,Insect Animal Bite","Cramp ","Drowning","Jellyfish", "Fire","Shock", "Head Injury","Burns","External Bleeding","Lose a Tooth", "Asthma","Missing Person","Threat, Violence","Fainting","Circulatory Failure", "Cooling","Fractures, Sprain", "Nosebleeds",  "Allergic Reaction",  "Diabetes","Kris, Chock,",    "Posoning, Burns", " Prevention","-"]))
+                                   listOfValues: ["Heart Attack", "Neck-Back Injury", "Heat Stroke","Wounds","Worm Body Part","Snake,Insect Animal Bite","Cramp ","Drowning","Jellyfish", "Fire","Shock", "Head Injury","Burns","External Bleeding","Lose a Tooth", "Asthma","Missing Person","Threat, Violence","Fainting","Circulatory Failure", "Cooling","Fractures, Sprain", "Nosebleeds",  "Allergic Reaction",  "Diabetes","Kris, Chock,",    "Poisoning, Burns", " Prevention","-"]))
         
         basicRows.append(StringRow(title: "Other Accident:",
                                    icon: "",
                                    kvcKey: "accident",
                                    value: accident.accident ?? "",
-                                   placeholder: "not found in list."))
+                                   placeholder: "Other."))
 
         
         
@@ -67,19 +67,25 @@ class AccidentData: NSObject, FormDataSource {
                                    kvcKey: "procedure",
                                    value: accident.procedure,
                                    
-                                   listOfValues: ["Rescue Below The Surface","Rescue at The Surface","Towing","Transport to Ambulance","Trasport to Hospital","Breath i Water","Breath on Beach","Fire Extinguisher","Stable Side Position","Blanket, Nursing","Defibrillation","Cooling","Alarmed SOS", "HLR", "Skull Passage Chain","Manual Fixation","High Mode","Plan Mode", "Trasport Taxi","-"]))
+                                   listOfValues: ["Rescue Below The Surface","Rescue at The Surface","Towing","Transport to Ambulance","Transport to Hospital","Breath i Water","Breath on Beach","Fire Extinguisher","Stable Side Position","Blanket, Nursing","Defibrillation","Cooling","Alarmed SOS", "HLR", "Skull Passage Chain","Manual Fixation","High Mode","Plan Mode", "Transport Taxi","-"]))
         
         basicRows.append(StringRow(title: "Other Procedure:",
                                    icon: "",
                                    kvcKey: "yourProc",
                                    value: accident.yourProc ?? "",
-                                   placeholder: "not found in list."))
+                                   placeholder: "Other."))
         
    
         
-        basicRows.append(TextViewRow(title: "Descibe the Case:",
+        basicRows.append(TextViewRow(title: "Describe the Case:",
                                      kvcKey: "note",
                                      value: accident.note ?? "-"))
+        
+        
+        basicRows.append(TextViewRow(title: "Any suggestion for improvement",
+                                     kvcKey: "improvement",
+                                     
+                                     value: accident.improvement ?? "suggestion"))
 
 //        basicRows.append(ButtonRow(title: "Delete",
 //                                   image: UIImage(systemName: "trash")!,

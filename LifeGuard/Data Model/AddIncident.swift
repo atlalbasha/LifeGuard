@@ -16,5 +16,5 @@ class AddIncident: Object {
     @objc dynamic var accident: String = "Accident"
     @objc dynamic var procedure: String = "Procedure"
     
-    var parentCategory = LinkingObjects(fromType: CategoryLogbook.self, property: "incidents")
+    
 }

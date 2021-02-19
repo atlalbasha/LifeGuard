@@ -19,8 +19,7 @@ class CategoryLogbook: Object {
     @objc dynamic var date: Date? // =  getCurrentDate() 
     
     let items = List<ItemLogbook>()
-    let notes = List<AddNote>()
-    let incidents = List<AddIncident>()
+ 
     
     
 }

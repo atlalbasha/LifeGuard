@@ -43,25 +43,21 @@ class NotesTableViewController: UITableViewController {
         return addNotes?.count ?? 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
         
         self.formatter.dateFormat = "HH:mm dd/MM/yy"
         let result = self.formatter.string(from: self.dateCreated)
         
         // Configure the cell...
-        let noteString = addNotes?[indexPath.row].title
-        let resultPrefix = noteString!.prefix(16)
+        let noteString = addNotes?[indexPath.row].title ?? "no"
+        let resultPrefix = noteString.prefix(16)
         
         
-        cell.textLabel?.text = "\(String(resultPrefix))..."  // .title
+        cell.textLabel?.text = addNotes?[indexPath.row].title ?? "no"
+    
         cell.detailTextLabel?.text = result
         
-        cell.delegate = self
-        
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 8
-    
-        
+       
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -80,7 +76,27 @@ class NotesTableViewController: UITableViewController {
             self.dismiss(animated: true, completion: nil)
         }
         
+        let deletePressed = UIAlertAction(title: "Delete", style: .default) { (deletePressed) in
+            print("delete")
+            if let itemForDelete = self.addNotes?[indexPath.row] {
+                
+                do {
+                    try self.realm.write {
+                        
+                        self.realm.delete(itemForDelete)
+                        
+                    }
+                } catch {
+                    print("error delete item \(error)")
+                }
+                
+            }
+            tableView.reloadData()
+        }
+        
         alert.addAction(cancelPressed)
+        alert.addAction(deletePressed)
+        
         present(alert, animated: true, completion: nil)
         
         
@@ -106,6 +122,7 @@ class NotesTableViewController: UITableViewController {
         }
         
         
+        
         // add buttom in textField alert
         let addPressed = UIAlertAction(title: "Add", style: .default) {
             (cancelPressed) in
@@ -124,6 +141,7 @@ class NotesTableViewController: UITableViewController {
         }
         
         alert.addAction(cancelPressed)
+        
         alert.addAction(addPressed)
         
         
@@ -169,47 +187,5 @@ class NotesTableViewController: UITableViewController {
     
     
 }
-
-
-//MARK: - Swipe delegate method
-
-extension NotesTableViewController: SwipeTableViewCellDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            
-            // delet item in logbooks database realm
-            if let itemForDelete = self.addNotes?[indexPath.row] {
-                
-                do {
-                    try self.realm.write {
-                        
-                        self.realm.delete(itemForDelete)
-                        
-                    }
-                } catch {
-                    print("error delete item \(error)")
-                }
-                
-            }
-            
-        }
-        
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "trash-Icon")
-        
-        return [deleteAction]
-    }
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
-}
-
-
-
-
 
 

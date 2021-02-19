@@ -8,12 +8,15 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import WebKit
+import PDFKit
 
 
 
-class CategoryLogbookTableViewController: UITableViewController {
+class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
     
-    
+    var webView: WKWebView?
+    var htmlString: String?
     
     let realm = try! Realm()
     var logbooks: Results<CategoryLogbook>?
@@ -34,12 +37,15 @@ class CategoryLogbookTableViewController: UITableViewController {
     }
     
     
-//    MARK: - View DidLoad
+    //    MARK: - View DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
         // change nav title color
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
+        //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
         
         loadLogbook()
         
@@ -50,9 +56,108 @@ class CategoryLogbookTableViewController: UITableViewController {
         //row hight in table View
         tableView.rowHeight = 70.0
         
-
+        
         
     }
+    @IBAction func actionPressed(_ sender: UIBarButtonItem) {
+        
+        let docsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pdfFile = docsDir.appendingPathComponent("LifeGuard.pdf")
+        
+        let pdfDocument = webView!.exportAsPDF()!
+        
+        pdfDocument.write(to: pdfFile)
+        
+        
+        let activityVC = UIActivityViewController(activityItems: [pdfFile], applicationActivities: nil)
+        
+        present(activityVC, animated: true, completion: nil)
+        
+        print(pdfFile.path)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+        var htmlTableString: String = ""
+        
+       
+        
+        for i in logbooks! {
+            
+            htmlTableString = """
+           
+            
+            <td>\(i.items[0].title)</td>
+            <td>\(i.items[0].air_temp)</td>
+            <td>\(i.items[0].water_temp)</td>
+            <td>\(i.items[0].wind_speed)</td>
+            <td>\(i.items[0].wind_direction)</td>
+            <td>\(i.items[0].people_on_beach)</td>
+            <td>\(i.items[0].people_in_water)</td>
+            <td>\(i.items[0].flag)</td>
+            <td>\(i.items[0].streams)</td>
+            <td>\(i.items[0].note)</td>
+            
+
+            
+            
+"""
+           
+        }
+        
+        htmlString = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <style>
+            table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+            </style>
+            </head>
+            <body>
+
+            <h2 style="text-align:left;float:left;">Logbook Report Place:</h2>
+            <style="clear:both;"/>
+
+            <table style="width:100%">
+            <tr>
+            <th>Time</th>
+            <th>Air Temp</th>
+            <th>Water Temp</th>
+            <th>Wind Speed</th>
+            <th>Wind direction</th>
+            <th>People in Beach</th>
+            <th>People in Water</th>
+            <th>Flag</th>
+            <th>Streams</th>
+            <th>Note</th>
+            
+            </tr>
+            \(htmlTableString)
+            </tr>
+
+            </table>
+
+            </body>
+            </html>
+
+            
+            
+
+
+            """
+        
+        
+        // webview HTML to pdf
+        self.webView = WKWebView.init(frame:self.view.frame)
+        self.webView?.loadHTMLString(htmlString ?? "", baseURL: nil)
+        
+        
+    }
+    
     //MARK: - Exit Segue
     // segue exit func to refresh tableView with dismiss other page
     @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
@@ -64,7 +169,7 @@ class CategoryLogbookTableViewController: UITableViewController {
     }
     
     
-//    MARK: - popup alert text
+    //    MARK: - popup alert text
     // add button in tab new daily logbook
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         
@@ -72,21 +177,22 @@ class CategoryLogbookTableViewController: UITableViewController {
         let startOfDay = calendar.date(bySettingHour: 00, minute: 00, second: 00, of: dateCreated)
         let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: dateCreated)
         
-        for i in logbooks! {
-            
-            if i.date! > startOfDay! && i.date! < endOfDay!  {
-                
-                
-                let alreadyAdded = UIAlertController(title: "Today's Report Already Created!", message: "Add a New One Tomorrow", preferredStyle: .alert)
-                
-                let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                alreadyAdded.addAction(cancelPressed)
-                present(alreadyAdded, animated: true, completion: nil)
-            }
-            
-        }
+         for i in logbooks! {
+         
+         if i.date! > startOfDay! && i.date! < endOfDay!  {
+         
+         
+         let alreadyAdded = UIAlertController(title: "Today's Report Already Created!", message: "Add a New One Tomorrow", preferredStyle: .alert)
+         
+         let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
+         self.dismiss(animated: true, completion: nil)
+         }
+         alreadyAdded.addAction(cancelPressed)
+         present(alreadyAdded, animated: true, completion: nil)
+         }
+         
+         }
+         
         
         // textField i alert
         var textField = UITextField()
@@ -124,7 +230,7 @@ class CategoryLogbookTableViewController: UITableViewController {
         
         actionPressed.setValue(UIColor(named: "prupleColor"), forKey: "titleTextColor")
         
-
+        
         
         alert.addAction(cancelPressed)
         alert.addAction(actionPressed)
@@ -142,7 +248,7 @@ class CategoryLogbookTableViewController: UITableViewController {
     
     
     
-// MARK: - Items
+    // MARK: - Items
     
     func loadLogbook() {
         //        soert database by last date first to shwo in table view
@@ -169,7 +275,7 @@ class CategoryLogbookTableViewController: UITableViewController {
     
     
     
-// MARK: - Table view data source
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

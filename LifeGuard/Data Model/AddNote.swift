@@ -13,6 +13,6 @@ class AddNote: Object {
     @objc dynamic var title: String = "Add Note"
     @objc dynamic var date = Date()
     
-    var parentCategory = LinkingObjects(fromType: CategoryLogbook.self, property: "notes")
+   
     
 }
