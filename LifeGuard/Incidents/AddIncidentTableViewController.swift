@@ -78,7 +78,7 @@ class AddIncidentTableViewController: UITableViewController, UITextFieldDelegate
         }else if section == 4 {
             return "Accident"
         }else {
-            return "Procueder"
+            return "Procedure"
         }
     }
     

@@ -28,31 +28,44 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
                 </head>
                 <body  topmargin="50" leftmargin="50" rightmargin="50">
 
-                <h2 style="text-align:left;float:left;">Accident Report</h2>
+                <h2 style="text-align:left;float:left;">Accident Report \(showReport?.lifeStation ?? "")</h2>
                 <h4 style="text-align:right;float:right;">Date:\(showReport?.reportDate ?? "")</h4>
                 <hr style="clear:both;"/>
 
                 <div>
 
                 <h3>Lifeguard info</h3>
-                <p>Lifeguard Name: \(showReport?.lifeGuardName ?? "")</p>
-                <p>lifeStation: \(showReport?.lifeStation ?? "")</p>
-                <p>Place: \(showReport?.place ?? "")</p>
-                <p>How Alarmed: \(showReport?.alarmed ?? "")</p>
-                <p>lifeEquipment: \(showReport?.lifeEquipment ?? "")</p>
-                <p>Extra Help: \(showReport?.extraHelp ?? "")</p>
-                <p>Note: \(showReport?.lifeNote ?? "")</p>
 
+                <p style="text-align:left;float:left;">Lifeguard Name: \(showReport?.lifeGuardName ?? "")</p>
+                <p style="text-align:right;float:right;">Life Station: \(showReport?.lifeStation ?? "")</p>
+                <br style="clear:both;"/>
+
+                <p style="text-align:left;float:left;">Place: \(showReport?.place ?? "")</p>
+                <p style="text-align:right;float:right;">How Alarmed: \(showReport?.alarmed ?? "")</p>
+                <br style="clear:both;"/>
+
+                <p style="text-align:left;float:left;">Life Equipment: \(showReport?.lifeEquipment ?? "")</p>
+                <p style="text-align:right;float:right;">Extra Help: \(showReport?.extraHelp ?? "")</p>
+                <br style="clear:both;"/>
+
+                <p>Note: \(showReport?.lifeNote ?? "")</p>
 
                 <hr>
 
                 <h3>Rescued info</h3>
-                <p>Rescued Name: \(showReport?.rescuedName ?? "")</p>
-                <p>Age and Gender: \(showReport?.ageGender ?? "")</p>
-                <p>Call for Help: \(showReport?.sign ?? "")</p>
-                <p>Found: \(showReport?.found ?? "")</p>
-                <p>Can Swim: \(showReport?.swim ?? "")</p>
-                <p>Unconscious: \(showReport?.unconscious ?? "")</p>
+
+                <p style="text-align:left;float:left;">Rescued Name: \(showReport?.rescuedName ?? "")</p>
+                <p style="text-align:right;float:right;">Age and Gender: \(showReport?.ageGender ?? "")</p>
+                <br style="clear:both;"/>
+
+                <p style="text-align:left;float:left;">Call for Help: \(showReport?.sign ?? "")</p>
+                <p style="text-align:right;float:right;">Found: \(showReport?.found ?? "")</p>
+                <br style="clear:both;"/>
+
+                <p style="text-align:left;float:left;">Can Swim: \(showReport?.swim ?? "")</p>
+                <p style="text-align:right;float:right;">Unconscious: \(showReport?.unconscious ?? "")</p>
+                <br style="clear:both;"/>
+
                 <p>Note: \(showReport?.rescuedNote ?? "")</p>
 
                 <hr>
@@ -124,7 +137,7 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
             }
             
         
-        
+        alert.view.tintColor = UIColor(named: "salmonColor")
         alert.addAction(cancelPressed)
         alert.addAction(deletePressed)
         
@@ -206,7 +219,7 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
                 
             }else {
                 cell.textLabel?.text = "Note \(showReport?.lifeNote ?? "")"
-                
+                cell.detailTextLabel?.isHidden = true
                 
             }
             
@@ -238,7 +251,7 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
                 
             }else {
                 cell.textLabel?.text = "Note \(showReport?.rescuedNote ??  "")"
-                
+                cell.detailTextLabel?.isHidden = true
                 
             }
             
@@ -268,6 +281,8 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
         
         return cell
     }
+    
+ 
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {

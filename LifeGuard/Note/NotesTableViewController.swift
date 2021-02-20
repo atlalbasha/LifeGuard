@@ -13,6 +13,7 @@ class NotesTableViewController: UITableViewController {
     
     let dateCreated = Date()
     let formatter = DateFormatter()
+    let calendar = Calendar.current
     
     
     let realm = try! Realm()
@@ -44,18 +45,20 @@ class NotesTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        
-        self.formatter.dateFormat = "HH:mm dd/MM/yy"
-        let result = self.formatter.string(from: self.dateCreated)
-        
+       
         // Configure the cell...
         let noteString = addNotes?[indexPath.row].title ?? "no"
-        let resultPrefix = noteString.prefix(16)
+        let resultPrefix = noteString.prefix(20)
         
         
-        cell.textLabel?.text = addNotes?[indexPath.row].title ?? "no"
-    
-        cell.detailTextLabel?.text = result
+        
+        self.formatter.dateFormat = "dd MMM HH:mm"
+        let noteDate = addNotes?[indexPath.row].date
+        
+        let stringDate = self.formatter.string(from: noteDate!)
+        
+        cell.textLabel?.text = "\(resultPrefix)..."
+        cell.detailTextLabel?.text = stringDate
         
        
         return cell
@@ -94,6 +97,7 @@ class NotesTableViewController: UITableViewController {
             tableView.reloadData()
         }
         
+        alert.view.tintColor = UIColor(named: "salmonColor")
         alert.addAction(cancelPressed)
         alert.addAction(deletePressed)
         
@@ -102,6 +106,35 @@ class NotesTableViewController: UITableViewController {
         
         
     }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        editButtonItem.image = UIImage(systemName: "trash")
+        
+        if (editingStyle == .delete) {
+           
+            if let itemForDelete = self.addNotes?[indexPath.row] {
+                
+                do {
+                    try self.realm.write {
+                        
+                        self.realm.delete(itemForDelete)
+                        
+                    }
+                } catch {
+                    print("error delete item \(error)")
+                }
+                
+            }
+            tableView.reloadData()
+        
+        
+        }
+    }
+   
     
     
     
@@ -123,9 +156,10 @@ class NotesTableViewController: UITableViewController {
         
         
         
-        // add buttom in textField alert
+        // add button in textField alert
         let addPressed = UIAlertAction(title: "Add", style: .default) {
             (cancelPressed) in
+            
             
             
             if(textField.text != "")
@@ -140,8 +174,8 @@ class NotesTableViewController: UITableViewController {
             
         }
         
+        alert.view.tintColor = UIColor(named: "salmonColor")
         alert.addAction(cancelPressed)
-        
         alert.addAction(addPressed)
         
         

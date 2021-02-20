@@ -17,7 +17,7 @@ class CategoryReportTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loadItems()
-        tableView.rowHeight = 60.0
+        tableView.rowHeight = 70.0
     }
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -38,7 +38,7 @@ class CategoryReportTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.imageView?.image = UIImage(systemName:  "doc.text")
-        cell.textLabel?.text = report?[indexPath.row].lifeGuardName
+        cell.textLabel?.text = report?[indexPath.row].lifeGuardName ?? "no"
         cell.detailTextLabel?.text = report?[indexPath.row].reportDate
       
 
@@ -62,6 +62,35 @@ class CategoryReportTableViewController: UITableViewController {
         }
             
         }
+    
+    
+    // handle delete 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            
+            if let itemForDelete = self.report?[indexPath.row] {
+                
+                do {
+                    try self.realm.write {
+                        
+                        self.realm.delete(itemForDelete)
+                        
+                    }
+                } catch {
+                    print("error delete item \(error)")
+                }
+                
+            }
+            tableView.reloadData()
+        
+        
+        
+        }
+    }
         
     
     //MARK: - Exit Segue
@@ -78,7 +107,7 @@ class CategoryReportTableViewController: UITableViewController {
     
     // MARK: - Items
     func loadItems() {
-//        soert database by last date first to shwo in table view
+//        sort database by last date first to show in table view
         report = realm.objects(AddReport.self).sorted(byKeyPath: "date", ascending: false)
         _ = report?.first
         
@@ -89,4 +118,18 @@ class CategoryReportTableViewController: UITableViewController {
 }
 
   
+
+
+// language 
+extension String {
+    func localized() -> String {
+        return NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: .main,
+            value: self,
+            comment: self)
+    }
+}
+
 

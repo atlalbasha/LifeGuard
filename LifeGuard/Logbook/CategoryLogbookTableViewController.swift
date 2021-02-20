@@ -150,7 +150,6 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
 
             """
         
-        
         // webview HTML to pdf
         self.webView = WKWebView.init(frame:self.view.frame)
         self.webView?.loadHTMLString(htmlString ?? "", baseURL: nil)
@@ -198,13 +197,13 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
         var textField = UITextField()
         
         // text alert controller
-        let alert = UIAlertController(title: "Add a Daily Logbook Report", message: "Once at the beginning of each day", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add a Daily Logbook Report".localized(), message: "Once at the beginning of each day", preferredStyle: .alert)
         
         // cancel button in textField alert
         let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
             self.dismiss(animated: true, completion: nil)
         }
-        cancelPressed.setValue(UIColor.systemPink, forKey: "titleTextColor")
+//        cancelPressed.setValue(UIColor.systemPink, forKey: "titleTextColor")
         
         // add buttom in textField alert
         let actionPressed = UIAlertAction(title: "Add", style: .default) {
@@ -228,10 +227,10 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
             
         }
         
-        actionPressed.setValue(UIColor(named: "prupleColor"), forKey: "titleTextColor")
+//        actionPressed.setValue(UIColor(named: "prupleColor"), forKey: "titleTextColor")
         
         
-        
+        alert.view.tintColor = #colorLiteral(red: 0.9792179465, green: 0.4215875864, blue: 0.4211912155, alpha: 1)
         alert.addAction(cancelPressed)
         alert.addAction(actionPressed)
         
@@ -283,7 +282,7 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "logbookCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "logbookCell", for: indexPath) 
         
         // get index count of each logbook items
         let indexCount = self.logbooks?[indexPath.row]
@@ -294,8 +293,9 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
         
         cell.textLabel?.text = logbooks?[indexPath.row].title ?? "No Logbook Added"  // .title
         cell.detailTextLabel?.text = String(count)
+        cell.imageView?.image = UIImage(systemName: "doc.on.doc")
         
-        cell.delegate = self
+        
         return cell
     }
     
@@ -317,21 +317,18 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
             }
         }
     }
-}
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
-
-
-
-
-//MARK: - Swipe delegate method
-
-extension CategoryLogbookTableViewController: SwipeTableViewCellDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            
-            // delet item in logbooks database realm
+        editButtonItem.image = UIImage(systemName: "trash")
+        
+        if (editingStyle == .delete) {
+           
+            // delete item in logbooks database realm
             if let itemForDelete = self.logbooks?[indexPath.row] {
                 
                 do {
@@ -346,21 +343,23 @@ extension CategoryLogbookTableViewController: SwipeTableViewCellDelegate {
                     print("error delete item \(error)")
                 }
                 
-            }
             
+            }
+            tableView.reloadData()
+        
+        
         }
-        
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "trash-Icon")
-        
-        return [deleteAction]
     }
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
+    
+    
 }
+
+
+
+
+
+
+
 
 
 

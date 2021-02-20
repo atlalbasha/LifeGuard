@@ -285,6 +285,7 @@ extension UIPrintPageRenderer {
         }
 
         UIGraphicsEndPDFContext()
+       
         return pdfData as Data
     }
 }

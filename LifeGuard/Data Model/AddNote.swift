@@ -11,7 +11,9 @@ import RealmSwift
 
 class AddNote: Object {
     @objc dynamic var title: String = "Add Note"
+    
     @objc dynamic var date = Date()
+    
     
    
     

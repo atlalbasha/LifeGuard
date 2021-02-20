@@ -58,15 +58,18 @@ class ItemsTableViewController: UITableViewController {
         
     }
     
+    
+    
    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! SwipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         
         // Configure the cell...
-        cell.delegate = self
+        
         
         cell.textLabel?.text = logbookItem?[indexPath.row].title ?? "No Item Added"
+        cell.imageView?.image = UIImage(systemName: "wallet.pass")
         
         
         return cell
@@ -85,6 +88,37 @@ class ItemsTableViewController: UITableViewController {
             
         }
         
+    }
+    
+    // delete handle 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        editButtonItem.image = UIImage(systemName: "trash")
+        
+        if (editingStyle == .delete) {
+           
+            // delete item in logbooks database realm
+            if let itemForDelete = self.logbookItem?[indexPath.row] {
+                
+                do {
+                    try self.realm.write {
+                       self.realm.delete(itemForDelete)
+                        
+                    }
+                } catch {
+                    print("error delete item \(error)")
+                }
+                
+            
+            }
+            tableView.reloadData()
+        
+        
+        }
     }
     
     
@@ -126,8 +160,7 @@ class ItemsTableViewController: UITableViewController {
         tableView.reloadData()
         
     }
-    
-    
+   
 }
 
 
@@ -136,37 +169,37 @@ class ItemsTableViewController: UITableViewController {
 
 
 
-//MARK: - Swipe delegate method
-
-extension ItemsTableViewController: SwipeTableViewCellDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-            
-            if let itemForDelete = self.logbookItem?[indexPath.row] {
-                do {
-                    try self.realm.write {
-                        self.realm.delete(itemForDelete)
-                    }
-                } catch {
-                    print("error delete item \(error)")
-                }
-                
-            }
-            
-        }
-        
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "trash-Icon")
-        
-        return [deleteAction]
-    }
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
-}
-
+////MARK: - Swipe delegate method
+//
+//extension ItemsTableViewController: SwipeTableViewCellDelegate {
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//        guard orientation == .right else { return nil }
+//
+//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//            // handle action by updating model with deletion
+//
+//            if let itemForDelete = self.logbookItem?[indexPath.row] {
+//                do {
+//                    try self.realm.write {
+//                        self.realm.delete(itemForDelete)
+//                    }
+//                } catch {
+//                    print("error delete item \(error)")
+//                }
+//
+//            }
+//
+//        }
+//
+//        // customize the action appearance
+//        deleteAction.image = UIImage(named: "trash-Icon")
+//
+//        return [deleteAction]
+//    }
+//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+//        var options = SwipeOptions()
+//        options.expansionStyle = .destructive
+//        return options
+//    }
+//}
+//

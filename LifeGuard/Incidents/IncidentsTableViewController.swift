@@ -59,7 +59,7 @@ class IncidentsTableViewController: UITableViewController {
         // Configure the cell...
         let nameTitle = incidents?[indexPath.row].name
         
-        
+        cell.imageView?.image = UIImage(systemName: "wallet.pass")
         cell.textLabel?.text = nameTitle ?? "No Item Added"  // .title
         cell.detailTextLabel?.text = result
         
