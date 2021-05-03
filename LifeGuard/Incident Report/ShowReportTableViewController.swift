@@ -179,14 +179,22 @@ class ShowReportTableViewController: UITableViewController, WKUIDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showReportInfoCell", for: indexPath)
+        
+        // prepare cell to reuse
+        cell.textLabel?.text = nil
+        cell.detailTextLabel?.text = nil
 
         if indexPath.section == 0 {
+            
+            
             
 //            cell.imageView?.image = UIImage(systemName: "calendar.badge.clock")
             cell.textLabel?.text = showReport?.reportDate
             cell.detailTextLabel?.isHidden = true
             
         }else if indexPath.section == 1 {
+            
+          
             
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Lifeguard Name"

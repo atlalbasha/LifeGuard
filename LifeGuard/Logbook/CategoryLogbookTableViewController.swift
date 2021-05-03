@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-import SwipeCellKit
+
 import WebKit
 import PDFKit
 
@@ -36,13 +36,14 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
         self.refreshControl?.endRefreshing()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     
     //    MARK: - View DidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         // change nav title color
         //        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2736076713, green: 0.249892056, blue: 0.5559395552, alpha: 1)]
@@ -61,101 +62,132 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
     }
     @IBAction func actionPressed(_ sender: UIBarButtonItem) {
         
-        let docsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let pdfFile = docsDir.appendingPathComponent("LifeGuard.pdf")
-        
-        let pdfDocument = webView!.exportAsPDF()!
-        
-        pdfDocument.write(to: pdfFile)
-        
-        
-        let activityVC = UIActivityViewController(activityItems: [pdfFile], applicationActivities: nil)
-        
-        present(activityVC, animated: true, completion: nil)
-        
-        print(pdfFile.path)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
-        var htmlTableString: String = ""
-        
-       
+        let file_name = "Report.csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(file_name)
+        var tableHead = "Live Station  , Date , Air Temp, Water Temp, Wind Speed, Wind Direction, People in Water, People on Beach, Flags, Streams, Note, x \n"
         
         for i in logbooks! {
             
-            htmlTableString = """
-           
+            print(i)
+            for j in i.items {
+                tableHead.append("\(i.title),\(j.air_temp),\(j.water_temp),\(j.wind_speed),\(j.wind_direction),\(j.people_in_water),\(j.people_on_beach),\(j.flag),\(j.streams),\(j.note), \(j.title)\n")
+            }
             
-            <td>\(i.items[0].title)</td>
-            <td>\(i.items[0].air_temp)</td>
-            <td>\(i.items[0].water_temp)</td>
-            <td>\(i.items[0].wind_speed)</td>
-            <td>\(i.items[0].wind_direction)</td>
-            <td>\(i.items[0].people_on_beach)</td>
-            <td>\(i.items[0].people_in_water)</td>
-            <td>\(i.items[0].flag)</td>
-            <td>\(i.items[0].streams)</td>
-            <td>\(i.items[0].note)</td>
+            //////            <td>\(i.items[i].air_temp)</td>
+            //////            <td>\(i.items[i].water_temp)</td>
+            //////            <td>\(i.items[i].wind_speed)</td>
+            //////            <td>\(i.items[i].wind_direction)</td>
+            //////            <td>\(i.items[i].people_on_beach)</td>
+            //////            <td>\(i.items[i].people_in_water)</td>
+            //////            <td>\(i.items[i].flag)</td>
+            //////            <td>\(i.items[i].streams)</td>
+            //////            <td>\(i.items[i].note)
             
-
-            
-            
-"""
-           
+        }
+        do{
+            try tableHead.write(to: path!, atomically: true, encoding: .utf8)
+            let exportSheet = UIActivityViewController(activityItems: [path as Any], applicationActivities: nil)
+            self.present(exportSheet, animated: true, completion: nil)
+            print("Exported")
+        }catch{
+            print("Error")
         }
         
-        htmlString = """
-            <!DOCTYPE html>
-            <html>
-            <head>
-            <style>
-            table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            }
-            </style>
-            </head>
-            <body>
-
-            <h2 style="text-align:left;float:left;">Logbook Report Place:</h2>
-            <style="clear:both;"/>
-
-            <table style="width:100%">
-            <tr>
-            <th>Time</th>
-            <th>Air Temp</th>
-            <th>Water Temp</th>
-            <th>Wind Speed</th>
-            <th>Wind direction</th>
-            <th>People in Beach</th>
-            <th>People in Water</th>
-            <th>Flag</th>
-            <th>Streams</th>
-            <th>Note</th>
-            
-            </tr>
-            \(htmlTableString)
-            </tr>
-
-            </table>
-
-            </body>
-            </html>
-
-            
-            
-
-
-            """
-        
-        // webview HTML to pdf
-        self.webView = WKWebView.init(frame:self.view.frame)
-        self.webView?.loadHTMLString(htmlString ?? "", baseURL: nil)
-        
+//        let docsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        let pdfFile = docsDir.appendingPathComponent("LifeGuard.pdf")
+//
+//        let pdfDocument = webView!.exportAsPDF()!
+//
+//        pdfDocument.write(to: pdfFile)
+//
+//
+//        let activityVC = UIActivityViewController(activityItems: [pdfFile], applicationActivities: nil)
+//
+//        present(activityVC, animated: true, completion: nil)
+//
+//        print(pdfFile.path)
         
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        tableView.reloadData()
+//        var htmlTableString: String = ""
+//
+//
+//
+//        for i in logbooks! {
+//
+//            htmlTableString = """
+//
+//
+//////            <td>\(i.items[i].title)</td>
+//////            <td>\(i.items[i].air_temp)</td>
+//////            <td>\(i.items[i].water_temp)</td>
+//////            <td>\(i.items[i].wind_speed)</td>
+//////            <td>\(i.items[i].wind_direction)</td>
+//////            <td>\(i.items[i].people_on_beach)</td>
+//////            <td>\(i.items[i].people_in_water)</td>
+//////            <td>\(i.items[i].flag)</td>
+//////            <td>\(i.items[i].streams)</td>
+//////            <td>\(i.items[i].note)</td>
+//
+//
+//
+//
+//"""
+//
+//        }
+//
+//        htmlString = """
+//            <!DOCTYPE html>
+//            <html>
+//            <head>
+//            <style>
+//            table, th, td {
+//            border: 1px solid black;
+//            border-collapse: collapse;
+//            }
+//            </style>
+//            </head>
+//            <body>
+//
+//            <h2 style="text-align:left;float:left;">Logbook Report Place:</h2>
+//            <style="clear:both;"/>
+//
+//            <table style="width:100%">
+//            <tr>
+//            <th>Time</th>
+//            <th>Air Temp</th>
+//            <th>Water Temp</th>
+//            <th>Wind Speed</th>
+//            <th>Wind direction</th>
+//            <th>People in Beach</th>
+//            <th>People in Water</th>
+//            <th>Flag</th>
+//            <th>Streams</th>
+//            <th>Note</th>
+//
+//            </tr>
+//            \(htmlTableString)
+//            </tr>
+//
+//            </table>
+//
+//            </body>
+//            </html>
+//
+//
+//
+//
+//
+//            """
+//
+//        // webview HTML to pdf
+//        self.webView = WKWebView.init(frame:self.view.frame)
+//        self.webView?.loadHTMLString(htmlString ?? "", baseURL: nil)
+//
+//
+//    }
     
     //MARK: - Exit Segue
     // segue exit func to refresh tableView with dismiss other page
@@ -176,21 +208,21 @@ class CategoryLogbookTableViewController: UITableViewController, WKUIDelegate {
         let startOfDay = calendar.date(bySettingHour: 00, minute: 00, second: 00, of: dateCreated)
         let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: dateCreated)
         
-         for i in logbooks! {
-         
-         if i.date! > startOfDay! && i.date! < endOfDay!  {
-         
-         
-         let alreadyAdded = UIAlertController(title: "Today's Report Already Created!", message: "Add a New One Tomorrow", preferredStyle: .alert)
-         
-         let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
-         self.dismiss(animated: true, completion: nil)
-         }
-         alreadyAdded.addAction(cancelPressed)
-         present(alreadyAdded, animated: true, completion: nil)
-         }
-         
-         }
+//         for i in logbooks! {
+//
+//         if i.date! > startOfDay! && i.date! < endOfDay!  {
+//
+//
+//         let alreadyAdded = UIAlertController(title: "Today's Report Already Created!", message: "Add a New One Tomorrow", preferredStyle: .alert)
+//
+//         let cancelPressed = UIAlertAction(title: "Cancel", style: .default) { (cancelPressed) in
+//         self.dismiss(animated: true, completion: nil)
+//         }
+//         alreadyAdded.addAction(cancelPressed)
+//         present(alreadyAdded, animated: true, completion: nil)
+//         }
+//
+//         }
          
         
         // textField i alert

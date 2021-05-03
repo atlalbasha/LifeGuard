@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-import SwipeCellKit
+
 
 class NotesTableViewController: UITableViewController {
     
@@ -193,7 +193,7 @@ class NotesTableViewController: UITableViewController {
     // MARK: - Items
     
     func loadNote() {
-        //        soert database by last date first to shwo in table view
+        //        sort database by last date first to show in table view
         addNotes = realm.objects(AddNote.self).sorted(byKeyPath: "date", ascending: false)
         _ = addNotes?.first
         

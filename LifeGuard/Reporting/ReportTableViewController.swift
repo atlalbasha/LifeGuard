@@ -196,6 +196,8 @@ class ReportTableViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reportCell", for: indexPath)
         // Configure the cell...
         
+        
+        
         //Stepper
         let myStepper = UIStepper()
         myStepper.autorepeat = true
